@@ -20,6 +20,14 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
             element.scrollTop = element.scrollHeight;
         });
     }
+    
+    function showBubble( id , messsage) {
+        $('#'+id).find('.message').fadeIn(1000).html(messsage);
+
+        setTimeout(() => {
+            $('#'+id).find('.message').fadeOut(1000);
+        },1000);
+    }
 
     function initSocket(username) {
         const  connectionOptions = {
@@ -70,9 +78,10 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
                     animate = false;
                 });
 
-                socket.on('newMessage', (data) => {
-                    $scope.messages.push(data);
+                socket.on('newMessage', (message) => {
+                    $scope.messages.push(message);
                     $scope.$apply();
+                    showBubble(message.socketId,message.text);
                     scrollTop();
                 });
 
@@ -107,7 +116,7 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
                     $scope.message = "";
 
                     socket.emit('newMessage',messageData);
-
+                    showBubble(socket.id, message);
                     //scrool function
                     scrollTop();
                 };
