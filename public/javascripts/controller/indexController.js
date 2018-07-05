@@ -25,12 +25,28 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
                 socket.on('newUser', ( data ) => {
                    // console.log(data);
                     const messageData = {
-                      type : 0 , // info
+                      type : {
+                          code : 0, //server or user message
+                          message : 1 // login or logout
+                      } , // info
                       username : data.username
                     };
                     $scope.messages.push(messageData);
                     $scope.$apply();
                 });
+
+                socket.on('disUser', ( data ) => {
+                    const messageData = {
+                        type : {
+                            code : 0,
+                            message : 0
+                        },
+                        username : data.username
+                    };
+                    console.log(data);
+                    $scope.messages.push(messageData);
+                    $scope.$apply();
+                } );
             })
             .catch( ( err ) => {
                 console.log(err);
