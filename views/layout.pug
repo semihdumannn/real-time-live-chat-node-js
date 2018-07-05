@@ -4,7 +4,7 @@ html(lang='en')
     title Real Chat
     link(rel='stylesheet', href='/semantic/dist/semantic.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-body
+body(ng-app="app")
     block content
 
 
@@ -14,3 +14,6 @@ body
 
     block javascript
         script(src="/angular/angular.min.js")
+        script(src="/javascripts/main.js")
+        script(src="/javascripts/indexController.js")
+
