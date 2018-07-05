@@ -52,6 +52,11 @@ io.on('connection', (socket) => {
 
     });
 
+    socket.on('newMessage', (data) => {
+        //console.log(data);
+        socket.broadcast.emit('newMessage',data);
+    });
+
 });
 
 module.exports = socketApi;
