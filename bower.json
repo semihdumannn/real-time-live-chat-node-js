@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.7.2",
-    "semantic": "^2.3.2"
+    "semantic": "^2.3.2",
+    "jquery": "^3.3.1"
   }
 }

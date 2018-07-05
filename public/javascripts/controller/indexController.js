@@ -54,6 +54,15 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
                     $scope.players = players;
                     $scope.$apply();
                 });
+                let animate = false;
+                $scope.onClickPlayer = ($event) => {
+                  //console.log($event.offsetX);
+                    if ( !animate) {
+                        animate = true;
+                        $('#'+socket.id).animate({ 'left' : $event.offsetX, 'top' : $event.offsetY});
+                    }
+
+                };
             })
             .catch( ( err ) => {
                 console.log(err);
