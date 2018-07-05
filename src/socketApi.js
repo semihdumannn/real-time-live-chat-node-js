@@ -23,6 +23,8 @@ io.on('connection', (socket) => {
         users.push(userData);
        // console.log(users);
 
+        socket.broadcast.emit('newUser',userData);
+
     });
 
 });
