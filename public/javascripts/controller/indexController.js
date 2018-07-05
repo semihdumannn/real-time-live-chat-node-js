@@ -50,6 +50,7 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
                     };
                     $scope.messages.push(messageData);
                     $scope.players[data.id] = data;
+                    scrollTop();
                     $scope.$apply();
                 });
 
@@ -69,6 +70,7 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
 
                 socket.on('initPlayers', ( players ) => {
                     $scope.players = players;
+                    scrollTop();
                     $scope.$apply();
                 });
 
