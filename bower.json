@@ -1,0 +1,14 @@
+{
+  "name": "real-time-live-chat-node-js",
+  "homepage": "https://github.com/semihdumannn/real-time-live-chat-node-js",
+  "authors": [
+    "Semih Duman <semihdumannn@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "semantic": "^2.3.2"
+  }
+}
