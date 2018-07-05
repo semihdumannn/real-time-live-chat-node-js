@@ -3,6 +3,8 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
 
     $scope.messages = [ ];
 
+    $scope.players= { };
+
     $scope.init = ( ) => {
         const username = prompt('Please enter username ');
 
@@ -47,6 +49,11 @@ app.controller('indexController', [ '$scope', 'indexFactory', ($scope, indexFact
                     $scope.messages.push(messageData);
                     $scope.$apply();
                 } );
+
+                socket.on('initPlayers', ( players ) => {
+                    $scope.players = players;
+                    $scope.$apply();
+                });
             })
             .catch( ( err ) => {
                 console.log(err);
